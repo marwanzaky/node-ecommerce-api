@@ -1,21 +1,39 @@
-const http = require('http');
+const express = require('express');
 const url = require('url');
 const fs = require('fs');
+const cors = require('cors');
 
-const productsJson = fs.readFileSync(`${__dirname}/products.json`);
+const app = express();
 
-var server = http.createServer((req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
+const productDataJson = fs.readFileSync(`${__dirname}/data/product-data.json`);
+const productDataObj = JSON.parse(productDataJson);
 
-    if (pathname === '/products') {
-        // res.writeHead(200, { 'Content-type': 'application/json' });
-        res.end('hello world, this is an API');
-    }
+app.use(cors());
 
-    console.log(req.url);
+app.get('/products', (req, res) => {
+    res.status(200).json(productDataObj);
 });
 
+app.get('/img/products/anniversary-gift-for-him.png', (req, res) => {
+    const { query, pathname } = url.parse(req.url, true);
+    res.status(200).sendFile(`${__dirname}${pathname}`);
+});
 
-server.listen(8000, '127.0.0.1', () => {
+app.get('/img/products/personalised-notebook.png', (req, res) => {
+    const { query, pathname } = url.parse(req.url, true);
+    res.status(200).sendFile(`${__dirname}${pathname}`);
+});
+
+app.get('/img/products/soft-cover-journal.png', (req, res) => {
+    const { query, pathname } = url.parse(req.url, true);
+    res.status(200).sendFile(`${__dirname}${pathname}`);
+});
+
+app.get('/img/products/spiral-notebook.png', (req, res) => {
+    const { query, pathname } = url.parse(req.url, true);
+    res.status(200).sendFile(`${__dirname}${pathname}`);
+});
+
+app.listen(8000, () => {
     console.log('Server is listening...');
 })
