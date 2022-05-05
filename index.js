@@ -8,31 +8,33 @@ const app = express();
 const productDataJson = fs.readFileSync(`${__dirname}/data/product-data.json`);
 const productDataObj = JSON.parse(productDataJson);
 
+const instagramDataJson = fs.readFileSync(`${__dirname}/data/instagram-data.json`);
+const instagramDataObj = JSON.parse(instagramDataJson);
+
 app.use(cors());
+app.use(express.json());
 
-app.get('/products', (req, res) => {
+const getAllProducts = (req, res) => {
     res.status(200).json(productDataObj);
-});
+};
 
-app.get('/img/products/anniversary-gift-for-him.png', (req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
-    res.status(200).sendFile(`${__dirname}${pathname}`);
-});
+const getProductImg = (req, res) => {
+    res.status(200).sendFile(`${__dirname}/img/products/${req.params.name}`);
+};
 
-app.get('/img/products/personalised-notebook.png', (req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
-    res.status(200).sendFile(`${__dirname}${pathname}`);
-});
+const getInstagram = (req, res) => {
+    res.status(200).json(instagramDataObj);
+};
 
-app.get('/img/products/soft-cover-journal.png', (req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
-    res.status(200).sendFile(`${__dirname}${pathname}`);
-});
+const getInstaImg = (req, res) => {
+    res.status(200).sendFile(`${__dirname}/img/instagram/${req.params.name}`);
+}
 
-app.get('/img/products/spiral-notebook.png', (req, res) => {
-    const { query, pathname } = url.parse(req.url, true);
-    res.status(200).sendFile(`${__dirname}${pathname}`);
-});
+app.get('/products', getAllProducts);
+app.get('/img/products/:name', getProductImg);
+
+app.get('/instagram', getInstagram);
+app.get('/img/instagram/:name', getInstaImg);
 
 app.listen(8000, () => {
     console.log('Server is listening...');
