@@ -4,7 +4,7 @@
     "name": "Personalised Notebook",
     "reviews": 34,
     "price": "9.99",
-    "src": "./img/products/personalised-notebook.png",
+    "pictures": ["./img/products/personalised-notebook/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
   {
@@ -12,7 +12,7 @@
     "name": "Anniversary Gift for Him",
     "reviews": 17,
     "price": "4.99",
-    "src": "./img/products/anniversary-gift-for-him.png",
+    "pictures": ["./img/products/anniversary-gift-for-him/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
   {
@@ -20,7 +20,7 @@
     "name": "Spiral Notebook",
     "reviews": 72,
     "price": "12.99",
-    "src": "./img/products/spiral-notebook.png",
+    "pictures": ["./img/products/spiral-notebook/0"],
     "description": "No rain no flowers spiral notebook - so cute and so inspirational.\n\nDesigned, manufactured, and printed in the USA.\n\nThis handmade, one-of-a-kind journal is perfect for note taking on the go, or just to jot down thoughts throughout the day.\n\nSize:\n5.5 x 8.5 inches\n\nDetails:\n- Spiral bound, double silver wire\n- 100 sheets/50 double sided individual pages\n- college ruled\n- matte laminated soft cover\n- front cover print only"
   },
   {
@@ -28,7 +28,14 @@
     "name": "Soft Cover Journal",
     "reviews": 9,
     "price": "19.99",
-    "src": "./img/products/soft-cover-journal.png",
+    "pictures": [
+      "./img/products/soft-cover-journal/0",
+      "./img/products/soft-cover-journal/1",
+      "./img/products/soft-cover-journal/2",
+      "./img/products/soft-cover-journal/3",
+      "./img/products/soft-cover-journal/4",
+      "./img/products/soft-cover-journal/5"
+    ],
     "description": "This soft cover journal is a great reminder - progress over perfection every time.\n\nThese spiral notebooks are great for on-the-go note-taking, journaling, making lists, + more.\n\nDesigned, manufactured, and printed in the USA.\n\nSize:\n5.5 x 8.5 inches\n\nNotebook Details:\n- Spiral-bound, double silver wire\n- 200 sheets/100 double-sided individual pages\n- college ruled\n- matte laminated soft cover\n- front cover print only\n- solid color back cover"
   }
 ]

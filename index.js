@@ -19,7 +19,7 @@ const getAllProducts = (req, res) => {
 };
 
 const getProductImg = (req, res) => {
-    res.status(200).sendFile(`${__dirname}/img/products/${req.params.name}`);
+    res.status(200).sendFile(`${__dirname}/img/products/${req.params.name}/img-${req.params.index}.png`);
 };
 
 const getInstagram = (req, res) => {
@@ -31,7 +31,7 @@ const getInstaImg = (req, res) => {
 }
 
 app.get('/products', getAllProducts);
-app.get('/img/products/:name', getProductImg);
+app.get('/img/products/:name/:index', getProductImg);
 
 app.get('/instagram', getInstagram);
 app.get('/img/instagram/:name', getInstaImg);
