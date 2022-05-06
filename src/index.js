@@ -2,6 +2,7 @@ const express = require('express');
 const url = require('url');
 const fs = require('fs');
 const cors = require('cors');
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -38,4 +39,6 @@ app.get('/img/instagram/:name', getInstaImg);
 
 app.listen(8000, () => {
     console.log('Server is listening...');
-})
+});
+
+module.exports.handler = serverless(app);
