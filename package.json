@@ -4,14 +4,14 @@
   "description": "Ecommerce website server",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/netlify-lambda serve src",
-    "build": "./node_modules/.bin/netlify-lambda build src"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marwan Zaky",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
+    "netlify-cli": "^10.3.0",
     "netlify-lambda": "^2.0.15",
     "serverless-http": "^3.0.1"
   }
