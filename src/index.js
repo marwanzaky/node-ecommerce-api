@@ -38,7 +38,7 @@ router.get('/img/products/:name/:index', getProductImg);
 router.get('/instagram', getInstagram);
 router.get('/img/instagram/:name', getInstaImg);
 
-app.use('/.netlify/functions/api', router);
+app.use('/.netlify/functions/index', router);
 
 // app.listen(8000, () => {
 //     console.log('Server is listening...');
