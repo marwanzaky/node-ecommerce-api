@@ -5,6 +5,7 @@ const cors = require('cors');
 const serverless = require('serverless-http');
 
 const app = express();
+const router = express.Router();
 
 const productDataJson = fs.readFileSync(`${__dirname}/data/product-data.json`);
 const productDataObj = JSON.parse(productDataJson);
@@ -31,14 +32,16 @@ const getInstaImg = (req, res) => {
     res.status(200).sendFile(`${__dirname}/img/instagram/${req.params.name}`);
 }
 
-app.get('/products', getAllProducts);
-app.get('/img/products/:name/:index', getProductImg);
+router.get('/products', getAllProducts);
+router.get('/img/products/:name/:index', getProductImg);
 
-app.get('/instagram', getInstagram);
-app.get('/img/instagram/:name', getInstaImg);
+router.get('/instagram', getInstagram);
+router.get('/img/instagram/:name', getInstaImg);
 
-app.listen(8000, () => {
-    console.log('Server is listening...');
-});
+app.use('/.netlify/functions/api', router);
+
+// app.listen(8000, () => {
+//     console.log('Server is listening...');
+// });
 
 module.exports.handler = serverless(app);
