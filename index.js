@@ -1,10 +1,11 @@
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
-const serverless = require('serverless-http');
+// const serverless = require('serverless-http');
 
 const app = express();
 const router = express.Router();
+const port = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
@@ -39,8 +40,8 @@ router.get('/img/instagram/:name', getInstaImg);
 
 app.use('/', router);
 
-// app.listen(8000, () => {
-//     console.log('Server is listening...');
-// });
+app.listen(port, () => {
+    console.log('Server is listening...');
+});
 
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);
