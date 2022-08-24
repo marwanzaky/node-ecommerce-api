@@ -10,14 +10,17 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 
-const productDataJson = fs.readFileSync(`${__dirname}/data/product-data.json`);
-const productDataObj = JSON.parse(productDataJson);
-
-const instagramDataJson = fs.readFileSync(`${__dirname}/data/instagram-data.json`);
-const instagramDataObj = JSON.parse(instagramDataJson);
+const productData = JSON.parse(fs.readFileSync(`${__dirname}/data/product-data.json`));
+const instagramData = JSON.parse(fs.readFileSync(`${__dirname}/data/instagram-data.json`));
 
 router.get('/products', (req, res) => {
-    res.status(200).json(productDataObj);
+    res.status(200).json(productData);
+});
+
+router.get('/products/:id', (req, res) => {
+    const id = req.params.id;
+    const productDataId = productData[id];
+    res.status(200).json(productDataId);
 });
 
 router.get('/img/products/:name/:index', (req, res) => {
@@ -25,7 +28,7 @@ router.get('/img/products/:name/:index', (req, res) => {
 });
 
 router.get('/instagram', (req, res) => {
-    res.status(200).json(instagramDataObj);
+    res.status(200).json(instagramData);
 });
 
 router.get('/img/instagram/:name', (req, res) => {
