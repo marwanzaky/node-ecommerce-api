@@ -4,6 +4,7 @@
     "name": "Personalised Notebook",
     "reviews": [],
     "price": "999",
+    "priceCompare": "1299",
     "pictures": ["./img/products/personalised-notebook/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
@@ -12,6 +13,7 @@
     "name": "Anniversary Gift for Him",
     "reviews": [],
     "price": "499",
+    "priceCompare": "799",
     "pictures": ["./img/products/anniversary-gift-for-him/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
@@ -33,6 +35,7 @@
       }
     ],
     "price": "1299",
+    "priceCompare": "1999",
     "pictures": [
       "./img/products/soft-cover-journal/0",
       "./img/products/soft-cover-journal/1",
@@ -67,6 +70,7 @@
       }
     ],
     "price": "1999",
+    "priceCompare": "2499",
     "pictures": [
       "./img/products/spiral-notebooks/0",
       "./img/products/spiral-notebooks/1",
