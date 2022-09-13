@@ -1,8 +1,12 @@
+const path = require('path');
+
 exports.getImgId = (req, res) => {
-    res.status(200).sendFile(`${__dirname}/img/products/${req.params.name}/img-${req.params.index}.png`);
+    const pathImgId = path.resolve(__dirname, `../../img/products/${req.params.name}/img-${req.params.index}.png`);
+    console.log(pathImgId);
+    res.status(200).sendFile(pathImgId);
 }
 
 exports.getImgInstaId = (req, res) => {
-    console.log(`${__dirname}/../../img/instagram/${req.params.name}`);
-    res.status(200).sendFile(`${__dirname}/img/instagram/${req.params.name}`);
+    const pathImgInstaId = path.resolve(__dirname, `../../img/instagram/${req.params.name}`);
+    res.status(200).sendFile(pathImgInstaId);
 }

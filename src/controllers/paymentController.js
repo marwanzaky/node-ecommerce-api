@@ -1,7 +1,9 @@
 const fs = require('fs');
+const path = require("path");
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
-const productData = JSON.parse(fs.readFileSync(`${__dirname}/data/product-data.json`));
+const productPath = path.resolve(__dirname, '../../data/product-data.json');
+const productData = JSON.parse(fs.readFileSync(productPath));
 
 exports.createCheckoutSession = async (req, res) => {
     try {

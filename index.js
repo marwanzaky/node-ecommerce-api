@@ -19,7 +19,7 @@ app.use(express.json());
 // Routes
 app.use('/api/v1/products', productRoute);
 app.use('/api/v1/img', imgRoute);
-app.use('.api/v1/payment', paymentRoute);
+app.use('/api/v1/payment', paymentRoute);
 
 // OTHERS
 router.get('/instagram', (req, res) => {
