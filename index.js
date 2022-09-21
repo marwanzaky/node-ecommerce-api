@@ -17,20 +17,20 @@ mongoose
     .then(() => console.log('DB connection successful!'));
 
 // Routes
+const userRoute = require('./src/routers/userRoute');
 const productRoute = require('./src/routers/productRoute');
 const imgRoute = require('./src/routers/imgRoute');
 const paymentRoute = require('./src/routers/paymentRoute');
-const userRoute = require('./src/routers/userRoute');
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use('/api/v1/users', userRoute);
 app.use('/api/v1/products', productRoute);
 app.use('/api/v1/img', imgRoute);
 app.use('/api/v1/payment', paymentRoute);
-app.use('/api/v1/user', userRoute);
 
 // OTHERS
 router.get('/instagram', (req, res) => {
