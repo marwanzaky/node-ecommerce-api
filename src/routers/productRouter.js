@@ -3,12 +3,9 @@ const express = require('express');
 
 const router = express.Router();
 
-router
-    .route('/')
-    .get(productController.getAllProducts);
+router.param('id', productController.checkID);
 
-router
-    .route('/:id')
-    .get(productController.getProductId);
+router.get('/', productController.getAllProducts);
+router.get('/:id', productController.getProductId);
 
 module.exports = router;

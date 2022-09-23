@@ -38,12 +38,12 @@ exports.login = async (req, res, next) => {
         if (!user || !await isCorrect())
             throw 'Incorrect password or email';
 
-        const json = signToken(user._id);
+        const token = signToken(user._id);
 
         res.status(201).json({
             status: 'success',
-            json
-        })
+            token
+        });
     }
     catch (err) {
         res.status(404).json({
@@ -63,7 +63,7 @@ exports.protect = async (req, res, next) => {
         if (!token)
             throw 'You are not logged in, Please log in to get access';
 
-        const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);     // This should have a custom error handler...
+        const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);     // ! This should have a custom error handler...
         const currentUser = await User.findById(decoded.id);
 
         if (!currentUser)
@@ -72,6 +72,7 @@ exports.protect = async (req, res, next) => {
         if (currentUser.changedPasswordAfter(decoded.iat))
             throw 'User recently changed password, Please log in again';
 
+        req.user = currentUser;
         next();
     }
     catch (err) {
@@ -80,4 +81,45 @@ exports.protect = async (req, res, next) => {
             message: err
         });
     }
-} 
+}
+
+exports.restrictTo = (...roles) => {
+    return (req, res, next) => {
+        try {
+            if (!roles.includes(req.user.role))
+                throw 'You do not have permission to perform this action';
+
+            next();
+        }
+        catch (err) {
+            res.status(403).json({
+                status: 'fail',
+                message: err
+            });
+        }
+    }
+}
+
+exports.forgotPassword = async (req, res) => {
+    try {
+        const user = await User.findOne({ email: req.body.email });
+        console.log(user);
+
+        if (!user)
+            throw 'No user found with that email';
+
+        const resetToken = user.createPasswordResetToken();
+        await user.save({ validateBeforeSave: false });
+
+        res.status(201).json({
+            status: 'success',
+            user
+        })
+    }
+    catch (err) {
+        res.status(404).json({
+            status: 'fail',
+            message: err
+        });
+    }
+}

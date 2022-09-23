@@ -2,9 +2,9 @@
   "name": "ecommerce-website-server",
   "version": "1.0.0",
   "description": "Ecommerce website server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon server.js"
   },
   "author": "Marwan Zaky",
   "license": "ISC",
