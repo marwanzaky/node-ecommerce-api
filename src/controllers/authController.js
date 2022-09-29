@@ -1,6 +1,7 @@
 const { promisify } = require('util');
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
+const sendEmail = require('../../utils/email');
 
 const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
@@ -103,7 +104,6 @@ exports.restrictTo = (...roles) => {
 exports.forgotPassword = async (req, res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
-        console.log(user);
 
         if (!user)
             throw 'No user found with that email';
@@ -111,10 +111,32 @@ exports.forgotPassword = async (req, res) => {
         const resetToken = user.createPasswordResetToken();
         await user.save({ validateBeforeSave: false });
 
-        res.status(201).json({
-            status: 'success',
-            user
-        })
+        const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
+        const message = `Forgot your password? Submit a PATCH request with your new password and confirmPassword to: ${resetURL}.\nIf you didn't forgot your password, please ignore this email.`;
+
+        try {
+            await sendEmail({
+                email: user.email,
+                subject: 'Your password reset token (valid for 10 mins)',
+                message
+            });
+
+            res.status(200).json({
+                status: 'success',
+                message: 'Token sent to email'
+            });
+        }
+        catch (err) {
+            user.passwordResetToken = undefined;
+            user.passwordResetExpires = undefined;
+            await user.save({ validateBeforeSave: false });
+
+            res.status(500).json({
+                status: 'fail',
+                user,
+                message: 'There was an error sending the email, Try again later.'
+            });
+        }
     }
     catch (err) {
         res.status(404).json({
@@ -122,4 +144,8 @@ exports.forgotPassword = async (req, res) => {
             message: err
         });
     }
+}
+
+exports.resetPassword = async (req, res) => {
+
 }
