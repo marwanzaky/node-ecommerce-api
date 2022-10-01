@@ -8,16 +8,20 @@ const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
 }
 
+const createSendToken = (res, user, statusCode) => {
+    const token = signToken(user._id);
+
+    res.status(statusCode).json({
+        status: 'success',
+        token,
+        data: { user }
+    });
+}
+
 exports.signup = async function (req, res, next) {
     try {
         const newUser = await User.create(req.body);
-        const token = signToken(newUser._id);
-        console.log('New user sign up successful');
-        res.status(201).json({
-            status: 'success',
-            token,
-            data: { user: newUser }
-        });
+        createSendToken(res, newUser, 201);
     }
     catch (err) {
         res.status(404).json({
@@ -40,15 +44,10 @@ exports.login = async (req, res, next) => {
         if (!user || !await isCorrect())
             throw 'Incorrect password or email';
 
-        const token = signToken(user._id);
-
-        res.status(201).json({
-            status: 'success',
-            token
-        });
+        createSendToken(res, user, 200);
     }
     catch (err) {
-        res.status(404).json({
+        res.status(401).json({
             status: 'fail',
             message: err
         });
@@ -168,15 +167,33 @@ exports.resetPassword = async (req, res) => {
 
         await user.save();
 
-        const token = signToken(user._id);
-
-        res.status(201).json({
-            status: 'success',
-            token
-        });
+        createSendToken(res, user, 200);
     }
     catch (err) {
         res.status(400).json({
+            status: 'fail',
+            message: err
+        });
+    }
+}
+
+exports.updatePassword = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id).select('+password');;
+        const isCorrect = await user.correctPassword(req.body.passwordCurrent, user.password);
+
+        if (!isCorrect)
+            throw 'Incorrect current password';
+
+        user.password = req.body.password;
+        user.passwordConfirm = req.body.passwordConfirm;
+
+        await user.save();
+
+        createSendToken(res, user, 200);
+    }
+    catch (err) {
+        res.status(401).json({
             status: 'fail',
             message: err
         });
