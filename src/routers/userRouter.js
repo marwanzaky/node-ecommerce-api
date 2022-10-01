@@ -11,6 +11,8 @@ router
     .get(authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.getUser)
     .delete(authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.deleteUser);
 
+router.patch('/updateMe', authController.protect, userController.updateMe);
+
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
 router.post('/forgotPassword', authController.forgotPassword);

@@ -112,7 +112,8 @@ exports.forgotPassword = async (req, res) => {
         await user.save({ validateBeforeSave: false });
 
         const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
-        const message = `Forgot your password? Submit a PATCH request with your new password and confirmPassword to: ${resetURL}.\nIf you didn't forgot your password, please ignore this email.`;
+        const message = `Forgot your password? Submit a PATCH request with your new password and confirmPassword to: ${resetURL}.
+If you didn't forgot your password, please ignore this email.`;
 
         try {
             await sendEmail({
@@ -155,7 +156,6 @@ exports.resetPassword = async (req, res) => {
             passwordResetToken: hashedToken,
             passwordResetExpires: { $gt: Date.now() }
         });
-
 
         if (!user)
             throw 'Token is invalid or has expired'

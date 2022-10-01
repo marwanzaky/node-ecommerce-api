@@ -1,5 +1,39 @@
 const User = require('../models/userModel');
 
+const filterObj = (obj, ...allowedFields) => {
+    const filteredObj = {};
+
+    Object.keys(obj).forEach(key => {
+        if (allowedFields.includes(key))
+            filteredObj[key] = obj[key];
+    });
+
+    return filteredObj;
+}
+
+exports.updateMe = async (req, res) => {
+    try {
+        if (req.body.password || req.body.passwordConfirm)
+            throw 'This route is not for password updates, Please use /updateMyPassword';
+
+        const filteredBody = filterObj(req.body, 'name', 'email');
+        const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
+            new: true,
+            runValidators: true
+        });
+
+        res.status(200).json({
+            status: 'success',
+            data: { user: updatedUser }
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        });
+    }
+}
+
 exports.getAllUsers = async (req, res) => {
     try {
         const users = await User.find();
