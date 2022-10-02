@@ -4,7 +4,8 @@
   "description": "Ecommerce website server",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "debug":"ndb server.js"
   },
   "author": "Marwan Zaky",
   "license": "ISC",
@@ -23,6 +24,7 @@
     "validator": "^13.7.0"
   },
   "devDependencies": {
+    "ndb": "^1.1.5",
     "nodemon": "^2.0.19"
   }
 }
