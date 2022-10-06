@@ -5,7 +5,7 @@
     "reviews": [],
     "price": "999",
     "priceCompare": "1299",
-    "pictures": ["./img/products/personalised-notebook/0"],
+    "pictures": ["imgs/products/personalised-notebook/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
   {
@@ -14,7 +14,7 @@
     "reviews": [],
     "price": "499",
     "priceCompare": "799",
-    "pictures": ["./img/products/anniversary-gift-for-him/0"],
+    "pictures": ["imgs/products/anniversary-gift-for-him/0"],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
   },
   {
@@ -37,12 +37,12 @@
     "price": "1299",
     "priceCompare": "1999",
     "pictures": [
-      "./img/products/soft-cover-journal/0",
-      "./img/products/soft-cover-journal/1",
-      "./img/products/soft-cover-journal/2",
-      "./img/products/soft-cover-journal/3",
-      "./img/products/soft-cover-journal/4",
-      "./img/products/soft-cover-journal/5"
+      "imgs/products/soft-cover-journal/0",
+      "imgs/products/soft-cover-journal/1",
+      "imgs/products/soft-cover-journal/2",
+      "imgs/products/soft-cover-journal/3",
+      "imgs/products/soft-cover-journal/4",
+      "imgs/products/soft-cover-journal/5"
     ],
     "description": "No rain no flowers spiral notebook - so cute and so inspirational.\n\nDesigned, manufactured, and printed in the USA.\n\nThis handmade, one-of-a-kind journal is perfect for note taking on the go, or just to jot down thoughts throughout the day.\n\nSize:\n5.5 x 8.5 inches\n\nDetails:\n- Spiral bound, double silver wire\n- 100 sheets/50 double sided individual pages\n- college ruled\n- matte laminated soft cover\n- front cover print only"
   },
@@ -72,12 +72,12 @@
     "price": "1999",
     "priceCompare": "2499",
     "pictures": [
-      "./img/products/spiral-notebooks/0",
-      "./img/products/spiral-notebooks/1",
-      "./img/products/spiral-notebooks/2",
-      "./img/products/spiral-notebooks/3",
-      "./img/products/spiral-notebooks/4",
-      "./img/products/spiral-notebooks/5"
+      "imgs/products/spiral-notebooks/0",
+      "imgs/products/spiral-notebooks/1",
+      "imgs/products/spiral-notebooks/2",
+      "imgs/products/spiral-notebooks/3",
+      "imgs/products/spiral-notebooks/4",
+      "imgs/products/spiral-notebooks/5"
     ],
     "description": "This soft cover journal is a great reminder to never forget how wildly capable you are.\n\nThese spiral notebooks are great for on-the-go note-taking, journaling, making lists, + more.\n\nDesigned, manufactured, and printed in the USA.\n\nSize:\n5.5 x 8.5 inches\n\nNotebook Details:\n- Spiral-bound, double silver wire\n- 200 sheets/100 double-sided individual pages\n- college ruled\n- matte laminated soft cover\n- front cover print only\n- solid color back cover"
   }
