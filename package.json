@@ -1,7 +1,7 @@
 {
-  "name": "ecommerce-website-server",
+  "name": "ecommerce-website-api",
   "version": "1.0.0",
-  "description": "Ecommerce website server",
+  "description": "ecommerce website api",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
