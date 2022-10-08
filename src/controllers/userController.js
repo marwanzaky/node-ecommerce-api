@@ -34,6 +34,27 @@ exports.updateMe = async (req, res) => {
     }
 }
 
+exports.deleteMe = async (req, res) => {
+    try {
+        const user = await User.findByIdAndUpdate(req.user.id, { active: false });
+        console.log('deleteMe', user);
+
+        if (!user)
+            throw 'No user found with that ID';
+
+        res.status(204).json({
+            status: 'success',
+            data: null
+        });
+    }
+    catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        });
+    }
+}
+
 exports.getAllUsers = async (req, res) => {
     try {
         const users = await User.find();

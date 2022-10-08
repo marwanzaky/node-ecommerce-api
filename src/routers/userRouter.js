@@ -4,14 +4,14 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/', authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.getAllUsers);
+router.patch('/updateMe', authController.protect, userController.updateMe);
+router.delete('/deleteMe', authController.protect, userController.deleteMe);
 
+router.get('/', authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.getAllUsers);
 router
     .route('/:email')
     .get(authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.getUser)
     .delete(authController.protect, authController.restrictTo('admin', 'lead-guide'), userController.deleteUser);
-
-router.patch('/updateMe', authController.protect, userController.updateMe);
 
 router.post('/signup', authController.signup);
 router.post('/login', authController.login);
