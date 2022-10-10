@@ -9,6 +9,7 @@ const MONGO_DB_DATABASE = process.env.MONGO_DB_DATABASE.replace('<PASSWORD>', MO
 
 mongoose
     .connect(MONGO_DB_DATABASE)
-    .then(() => console.log('DB connection successful!'));
+    .then(() => console.log('DB connection successful!'))
+    .catch(err => console.log('DB connection failed!'));
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
