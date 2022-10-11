@@ -2,7 +2,20 @@
   {
     "id": 0,
     "name": "Personalised Notebook",
-    "reviews": [],
+    "reviews": [
+      {
+        "fullname": "Gobinda Richmal",
+        "date": "May 3, 2022",
+        "stars": "★★★★★",
+        "review": "beautiful notebook as well as very high quality, i would definitely recommend buying one!"
+      },
+      {
+        "fullname": "Pryderi Petrina",
+        "date": "Jul 15, 2022",
+        "stars": "★★★★★",
+        "review": "The book is from the cover so it feels like leather so really a very pleasant material. Simply the madness it is also stable and also not too big or too small exactly perfect"
+      }
+    ],
     "price": "999",
     "priceCompare": "1299",
     "pictures": [
