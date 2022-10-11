@@ -25,12 +25,27 @@
   },
   {
     "id": 1,
-    "name": "Anniversary Gift for Him",
-    "reviews": [],
+    "name": "Notebook Journal",
+    "reviews": [
+      {
+        "fullname": "Soili Khufu",
+        "date": "May 3, 2022",
+        "stars": "★★★★★",
+        "review": "Beautiful notebook! Very happy with my purchase! Great customer service and communication from seller. Fast shipping. Highly recommend. These are beautiful, I bought one for my sister and one for me. We are both in love we our new notebooks. Will be purchasing more."
+      },
+      {
+        "fullname": "Ngawang Khwaja",
+        "date": "Jul 15, 2022",
+        "stars": "★★★★★",
+        "review": "Customer service was amazing, my item was amazing, I will definitely make this a recurring purchase and buying as a gift for others."
+      }
+    ],
     "price": "499",
     "priceCompare": "799",
-    "pictures": ["imgs/products/anniversary-gift-for-him/0"],
-    "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
+    "pictures": [
+      "imgs/products/notebook-journal/0",
+      "imgs/products/notebook-journal/1"],
+    "description": "It's the perfect companion for your work, taking it with you to meetings or simply personal journaling and reflecting.\n\nPersonalize your Journal and Notebook with your name, initials, or a mantra on the spine."
   },
   {
     "id": 2,
