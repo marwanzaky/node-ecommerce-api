@@ -5,8 +5,10 @@
     "reviews": [],
     "price": "999",
     "priceCompare": "1299",
-    "pictures": ["imgs/products/personalised-notebook/0"],
-    "description": "This soft cover journal is a great reminder to never forget how wildly capable you are."
+    "pictures": [
+      "imgs/products/personalised-notebook/0",
+      "imgs/products/personalised-notebook/1"],
+    "description": "A personalised Birth Flower Notebook.\n\nA notebook personalised with your own words and the birth flower of your choice.\n\nWe have 12 different flowers for each month of the year, and we add in a bit of detail as to the traits that are associated with those months and flowers."
   },
   {
     "id": 1,
