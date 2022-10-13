@@ -9,7 +9,7 @@ router
     .post(productController.createProduct);
 
 router
-    .route('/:name')
+    .route('/:id')
     .get(productController.getProduct)
     .patch(productController.updateProduct)
     .delete(productController.deleteProduct)

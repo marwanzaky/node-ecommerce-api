@@ -4,7 +4,8 @@ const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'A product must have a name'],
-        unique: true
+        unique: true,
+        trim: true
     },
     price: {
         type: Number,
@@ -26,7 +27,12 @@ const productSchema = new mongoose.Schema({
     }],
     description: {
         type: String,
-        required: [true, 'A product must have a description']
+        required: [true, 'A product must have a description'],
+        trim: true
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now()
     }
 });
 

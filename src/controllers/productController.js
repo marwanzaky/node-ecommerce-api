@@ -22,7 +22,7 @@ exports.getAllProducts = async (req, res) => {
 }
 
 exports.getProduct = async (req, res) => {
-    const name = convertIdToName(req.params.name);
+    const name = convertIdToName(req.params.id);
     const product = await Product.findOne({ name });
 
     res.status(200).json({
@@ -52,20 +52,48 @@ exports.createProduct = async (req, res) => {
     }
 }
 
-exports.updateProduct = (req, res) => {
-    const product = {};
+exports.updateProduct = async (req, res) => {
+    try {
+        const name = convertIdToName(req.params.id);
+        const currentProduct = await Product.findOne({ name });
 
-    res.status(200).json({
-        status: 'success',
-        data: {
-            product
-        }
-    });
+        if (!currentProduct)
+            throw 'No product found with that name';
+
+        const updatedProduct = await Product.findOneAndUpdate({ name }, req.body, {
+            new: true,
+            runValidators: true
+        });
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                product: updatedProduct
+            }
+        });
+    }
+    catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: 'Invalid data sent'
+        });
+    }
 }
 
-exports.deleteProduct = (req, res) => {
-    res.status(204).json({
-        status: 'success',
-        data: null
-    });
+exports.deleteProduct = async (req, res) => {
+    try {
+        const name = convertIdToName(req.params.id);
+        await Product.findOneAndDelete({ name });
+
+        res.status(204).json({
+            status: 'success',
+            data: null
+        });
+    }
+    catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: 'Invalid data sent'
+        });
+    }
 }
