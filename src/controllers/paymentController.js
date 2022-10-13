@@ -1,11 +1,9 @@
-const fs = require('fs');
-// const path = require("path");
+const Product = require('../models/productModel');
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-
-const products = JSON.parse(fs.readFileSync(`${__dirname}/../../data/products.json`));
 
 exports.createCheckoutSession = async (req, res) => {
     try {
+        const products = await Product.find();
         const line_items = req.body.items.map(item => {
             const line_item = products[item.id];
 

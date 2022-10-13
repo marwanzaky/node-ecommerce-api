@@ -6,7 +6,6 @@ const app = express();
 // Routers
 const userRouter = require('./src/routers/userRouter');
 const productRouter = require('./src/routers/productRouter');
-// const productDBRouter = require('./src/routers/productDBRouter');
 const imgRouter = require('./src/routers/imgRouter');
 const paymentRouter = require('./src/routers/paymentRouter');
 

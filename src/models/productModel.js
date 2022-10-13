@@ -14,6 +14,16 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'A product must have a priceCompare']
     },
+    imgs: {
+        type: [String],
+        required: true
+    },
+    reviews: [{
+        "fullname": String,
+        "date": String,
+        "stars": String,
+        "review": String
+    }],
     description: {
         type: String,
         required: [true, 'A product must have a description']
