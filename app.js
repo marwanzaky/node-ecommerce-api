@@ -8,6 +8,7 @@ const app = express();
 // Routers
 const userRouter = require('./src/routers/userRouter');
 const productRouter = require('./src/routers/productRouter');
+const reviewRoute = require('./src/routers/reviewRoute');
 const imgRouter = require('./src/routers/imgRouter');
 const paymentRouter = require('./src/routers/paymentRouter');
 
@@ -26,6 +27,7 @@ app.use(express.json({ limit: '10kb' }));
 // Routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/reviews', reviewRoute);
 app.use('/api/v1/imgs', imgRouter);
 app.use('/api/v1/payment', paymentRouter);
 
