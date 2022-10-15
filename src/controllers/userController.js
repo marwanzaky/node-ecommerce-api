@@ -1,4 +1,5 @@
 const User = require('../models/userModel');
+const factory = require('./handlerFactory');
 
 const filterObj = (obj, ...allowedFields) => {
     const filteredObj = {};
@@ -37,7 +38,6 @@ exports.updateMe = async (req, res) => {
 exports.deleteMe = async (req, res) => {
     try {
         const user = await User.findByIdAndUpdate(req.user.id, { active: false });
-        console.log('deleteMe', user);
 
         if (!user)
             throw 'No user found with that ID';
@@ -74,7 +74,7 @@ exports.getAllUsers = async (req, res) => {
 
 exports.getUser = async (req, res) => {
     try {
-        const user = await User.findOne({ email: req.params.email });
+        const user = await User.findById(req.params.id);
 
         if (!user)
             throw 'No user found with that ID';
@@ -92,21 +92,5 @@ exports.getUser = async (req, res) => {
     }
 }
 
-exports.deleteUser = async (req, res) => {
-    try {
-        const user = await User.findOneAndDelete(req.params.email);
-
-        if (!user)
-            throw 'No user found with that ID';
-
-        res.status(204).json({
-            status: 'success',
-            data: null
-        });
-    } catch (err) {
-        res.status(404).json({
-            status: 'fail',
-            message: err
-        });
-    }
-}
+exports.updateUser = factory.updateOne(User);
+exports.deleteUser = factory.deleteOne(User);

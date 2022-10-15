@@ -44,6 +44,7 @@ exports.signup = async function (req, res, next) {
 
 exports.login = async (req, res, next) => {
     try {
+        console.log('hwllloe');
         const { email, password } = req.body;
 
         if (!email || !password)

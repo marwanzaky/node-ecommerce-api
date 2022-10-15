@@ -1,7 +1,10 @@
 const productController = require('../controllers/productController');
+const reviewRoute = require('../routers/reviewRoute');
 const express = require('express');
 
 const router = express.Router();
+
+router.use('/:productId/reviews', reviewRoute)
 
 router
     .route('/')
