@@ -11,7 +11,7 @@ exports.getAll = (Model, populateOptions) => async (req, res) => {
             status: 'success',
             results: docs.length,
             data: {
-                documents: docs
+                [`${Model.modelName}s`.toLowerCase()]: docs
             }
         });
     }
@@ -33,12 +33,12 @@ exports.getOne = (Model, populateOptions) => async (req, res) => {
         const doc = await query;
 
         if (!doc)
-            throw 'No document found with that ID';     // 404
+            throw `No ${Model.modelName.toLowerCase()} found with that ID`;     // 404
 
         res.status(200).json({
             status: 'success',
             data: {
-                document: doc
+                [Model.modelName.toLowerCase()]: doc
             }
         });
     }
@@ -58,12 +58,12 @@ exports.updateOne = Model => async (req, res) => {
         });
 
         if (!doc)
-            throw 'No document found with that ID';     // 404
+            throw `No ${Model.modelName.toLowerCase()} found with that ID`;     // 404
 
         res.status(200).json({
             status: 'success',
             data: {
-                document: doc
+                [Model.modelName.toLowerCase()]: doc
             }
         });
     }
@@ -82,7 +82,7 @@ exports.createOne = Model => async (req, res) => {
         res.status(201).json({
             status: 'success',
             data: {
-                document: newDoc
+                [Model.modelName.toLowerCase()]: newDoc
             }
         });
     }
@@ -99,7 +99,7 @@ exports.deleteOne = Model => async (req, res) => {
         const doc = await Model.findByIdAndDelete(req.params.id);
 
         if (!doc)
-            throw 'No document found with that ID';     // 404
+            throw `No ${Model.modelName.toLowerCase()} found with that ID`;     // 404
 
         res.status(204).json({
             status: 'success',
