@@ -1,28 +1,9 @@
 const Review = require('../models/reviewModel');
 const factory = require('./handlerFactory');
 
-exports.getAllReviews = async (req, res) => {
-    try {
-        let filter = {};
-
-        if (req.params.productId) filter = { product: req.params.productId };
-
-        const reviews = await Review.find(filter);
-
-        res.status(200).json({
-            status: 'success',
-            results: reviews.length,
-            data: {
-                reviews
-            }
-        });
-    }
-    catch (err) {
-        res.status(400).json({
-            status: 'fail',
-            message: err
-        });
-    }
+exports.setProductFindOptionsId = (req, res, next) => {
+    if (req.params.productId) req.findOptions = { product: req.params.productId };
+    next();
 }
 
 exports.setProductUserIds = (req, res, next) => {
@@ -31,6 +12,8 @@ exports.setProductUserIds = (req, res, next) => {
     next();
 }
 
+exports.getAllReviews = factory.getAll(Review);
+exports.getReview = factory.getOne(Review);
 exports.createReview = factory.createOne(Review);
 exports.updateReview = factory.updateOne(Review);
 exports.deleteReview = factory.deleteOne(Review);
