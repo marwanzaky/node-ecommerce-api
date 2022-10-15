@@ -1,4 +1,5 @@
 const productController = require('../controllers/productController');
+const authController = require('../controllers/authController');
 const reviewRoute = require('../routers/reviewRoute');
 const express = require('express');
 
@@ -9,12 +10,12 @@ router.use('/:productId/reviews', reviewRoute)
 router
     .route('/')
     .get(productController.getAllProducts)
-    .post(productController.createProduct);
+    .post(authController.protect, authController.restrictTo('admin', 'lead-guide'), productController.createProduct);
 
 router
     .route('/:id')
     .get(productController.getProduct)
-    .patch(productController.updateProduct)
-    .delete(productController.deleteProduct)
+    .patch(authController.protect, authController.restrictTo('admin', 'lead-guide'), productController.updateProduct)
+    .delete(authController.protect, authController.restrictTo('admin', 'lead-guide'), productController.deleteProduct)
 
 module.exports = router;

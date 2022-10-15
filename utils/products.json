@@ -1,69 +1,29 @@
 [
   {
-    "id": 0,
+    "_id": "6349f871cab75287de7915dd",
     "name": "Personalised Notebook",
-    "reviews": [
-      {
-        "fullname": "Gobinda Richmal",
-        "date": "May 3, 2022",
-        "stars": "★★★★★",
-        "review": "beautiful notebook as well as very high quality, i would definitely recommend buying one!"
-      },
-      {
-        "fullname": "Pryderi Petrina",
-        "date": "Jul 15, 2022",
-        "stars": "★★★★★",
-        "review": "The book is from the cover so it feels like leather so really a very pleasant material. Simply the madness it is also stable and also not too big or too small exactly perfect"
-      }
-    ],
     "price": "999",
     "priceCompare": "1299",
     "imgs": [
       "imgs/products/personalised-notebook/0",
-      "imgs/products/personalised-notebook/1"],
+      "imgs/products/personalised-notebook/1"
+    ],
     "description": "A personalised Birth Flower Notebook.\n\nA notebook personalised with your own words and the birth flower of your choice.\n\nWe have 12 different flowers for each month of the year, and we add in a bit of detail as to the traits that are associated with those months and flowers."
   },
   {
-    "id": 1,
+    "_id": "6349f871cab75287de7915de",
     "name": "Notebook Journal",
-    "reviews": [
-      {
-        "fullname": "Soili Khufu",
-        "date": "May 3, 2022",
-        "stars": "★★★★★",
-        "review": "Beautiful notebook! Very happy with my purchase! Great customer service and communication from seller. Fast shipping. Highly recommend. These are beautiful, I bought one for my sister and one for me. We are both in love we our new notebooks. Will be purchasing more."
-      },
-      {
-        "fullname": "Ngawang Khwaja",
-        "date": "Jul 15, 2022",
-        "stars": "★★★★★",
-        "review": "Customer service was amazing, my item was amazing, I will definitely make this a recurring purchase and buying as a gift for others."
-      }
-    ],
     "price": "499",
     "priceCompare": "799",
     "imgs": [
       "imgs/products/notebook-journal/0",
-      "imgs/products/notebook-journal/1"],
+      "imgs/products/notebook-journal/1"
+    ],
     "description": "It's the perfect companion for your work, taking it with you to meetings or simply personal journaling and reflecting.\n\nPersonalize your Journal and Notebook with your name, initials, or a mantra on the spine."
   },
   {
-    "id": 2,
+    "_id": "6349f871cab75287de7915df",
     "name": "Soft Cover Journal",
-    "reviews": [
-      {
-        "fullname": "Lane",
-        "date": "Feb 16, 2022",
-        "stars": "★★★★★",
-        "review": "Looks just like the description! Great quality item!"
-      },
-      {
-        "fullname": "cathieblanton1",
-        "date": "Mar 25, 2022",
-        "stars": "★★★★★",
-        "review": "Beautiful journals! Just the right size."
-      }
-    ],
     "price": "1299",
     "priceCompare": "1999",
     "imgs": [
@@ -77,28 +37,8 @@
     "description": "No rain no flowers spiral notebook - so cute and so inspirational.\n\nDesigned, manufactured, and printed in the USA.\n\nThis handmade, one-of-a-kind journal is perfect for note taking on the go, or just to jot down thoughts throughout the day.\n\nSize:\n5.5 x 8.5 inches\n\nDetails:\n- Spiral bound, double silver wire\n- 100 sheets/50 double sided individual pages\n- college ruled\n- matte laminated soft cover\n- front cover print only"
   },
   {
-    "id": 3,
+    "_id": "6349f871cab75287de7915e0",
     "name": "Spiral Notebooks",
-    "reviews": [
-      {
-        "fullname": "Samantha Fowler",
-        "date": "Jan 30, 2022",
-        "stars": "★★★★★",
-        "review": "SO cute, great quality notebook, arrived super fast"
-      },
-      {
-        "fullname": "mariacandela",
-        "date": "Apr 15, 2022",
-        "stars": "★★★★★",
-        "review": "Sent these notebooks to my women's network mentees and they loved them! This is a great gift for anyone who needs a little daily inspiration!"
-      },
-      {
-        "fullname": "auren joyner",
-        "date": "Dec 28, 2021",
-        "stars": "★★★★★",
-        "review": "This notebook is thicker than expected! I bought this for a teacher friend, and I know she is going to love it. I want one for myself!"
-      }
-    ],
     "price": "1999",
     "priceCompare": "2499",
     "imgs": [

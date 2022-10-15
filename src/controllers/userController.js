@@ -12,6 +12,11 @@ const filterObj = (obj, ...allowedFields) => {
     return filteredObj;
 }
 
+exports.getMe = async (req, res, next) => {
+    req.params.id = req.user.id;
+    next();
+}
+
 exports.updateMe = async (req, res) => {
     try {
         if (req.body.password || req.body.passwordConfirm)
@@ -54,6 +59,13 @@ exports.deleteMe = async (req, res) => {
         });
     }
 }
+
+exports.createUser = (req, res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'This route is not defined, please use /signup instead'
+    });
+};
 
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
