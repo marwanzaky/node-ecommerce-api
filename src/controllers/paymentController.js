@@ -5,7 +5,7 @@ exports.createCheckoutSession = async (req, res) => {
     try {
         const products = await Product.find();
         const line_items = req.body.items.map(item => {
-            const line_item = products[item.id];
+            const line_item = products.find(product => product.id === item.id);;
 
             return {
                 price_data: {
