@@ -12,13 +12,12 @@ const createSendToken = (res, user, statusCode) => {
     user.password = undefined;
 
     const token = signToken(user._id);
+
     const cookieOptions = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
-        httpOnly: true
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production'
     };
-
-    if (process.env.NODE_ENV === 'production')
-        cookieOptions.secure = true;
 
     res.cookie('jwk', token, cookieOptions);
 
@@ -44,7 +43,6 @@ exports.signup = async function (req, res, next) {
 
 exports.login = async (req, res, next) => {
     try {
-        console.log('hwllloe');
         const { email, password } = req.body;
 
         if (!email || !password)
