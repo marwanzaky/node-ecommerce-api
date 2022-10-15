@@ -3,7 +3,7 @@ const Product = require('../models/productModel');
 
 exports.getAllProducts = async (req, res) => {
     try {
-        const products = await Product.find();
+        const products = await Product.find().populate('reviews');
 
         res.status(200).json({
             status: 'success',
@@ -23,7 +23,7 @@ exports.getAllProducts = async (req, res) => {
 
 exports.getProduct = async (req, res) => {
     const name = convertIdToName(req.params.id);
-    const product = await Product.findOne({ name });
+    const product = await Product.findOne({ name }).populate('reviews');
 
     res.status(200).json({
         status: 'success',

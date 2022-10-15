@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const schemaOptions = {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+}
+
 const reviewSchema = new mongoose.Schema({
     rating: {
         type: Number,
@@ -26,14 +31,14 @@ const reviewSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     }
-});
+}, schemaOptions);
 
 reviewSchema.pre(/^find/, function (next) {
     this
-        .populate({
-            path: 'product',
-            select: 'name'
-        })
+        // .populate({
+        //     path: 'product',
+        //     select: 'name'
+        // })
         .populate({
             path: 'user',
             select: 'name photo'

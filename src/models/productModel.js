@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const schemaOptions = {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+}
+
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -19,12 +24,6 @@ const productSchema = new mongoose.Schema({
         type: [String],
         required: true
     },
-    reviews: [{
-        "fullname": String,
-        "date": String,
-        "stars": String,
-        "review": String
-    }],
     description: {
         type: String,
         required: [true, 'A product must have a description'],
@@ -34,6 +33,18 @@ const productSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     }
+}, schemaOptions);
+
+productSchema.virtual('discount').get(function () {
+    const discount = this.priceCompare - this.price;
+    const discountPercent = discount / this.priceCompare * 100;
+    return this.discount = `${Math.round(discountPercent)}%`;
+});
+
+productSchema.virtual('reviews', {
+    ref: 'Review',
+    foreignField: 'product',
+    localField: '_id'
 });
 
 const Product = mongoose.model('Product', productSchema);
