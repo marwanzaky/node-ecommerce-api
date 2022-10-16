@@ -5,7 +5,10 @@ The project is built from the ground up using modern technologies such as Node.j
 ## Features
 - Authorization, and Authentication
 - Sign Up, and Sign In
-- Products API
-- Reviews
-- Supprt nesting APIs
+- Product APIs
+- Rating, and Review APIs
+- Password encryption
+- Json Web Token
+- Support nesting APIs
+- Stripe checkout payment API
 - Advance mongoose features
