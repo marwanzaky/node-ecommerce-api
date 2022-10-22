@@ -24,7 +24,7 @@ const limiter = rateLimit({
 
 app.use(helmet());
 app.use('/api', limiter);
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'https://mamolio.com' }));
 app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 app.use(xss());
