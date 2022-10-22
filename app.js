@@ -22,9 +22,14 @@ const limiter = rateLimit({
     message: 'Too many requests from this IP, please try again later'
 });
 
+const corsOptions = {
+    origin: true,
+    credentials: true,
+};
+
 app.use(helmet());
 app.use('/api', limiter);
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 app.use(xss());
