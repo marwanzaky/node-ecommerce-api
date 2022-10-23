@@ -23,16 +23,10 @@ const limiter = rateLimit({
 });
 
 const corsOptions = {
-    origin: true,
     credentials: true,
-};
-
-app.use(function (req, res, next) {
-    res.header('Content-Type', 'application/json;charset=UTF-8');
-    res.header('Access-Control-Allow-Credentials', true);
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-})
+    origin: ['https://mamolio.com', 'http://localhost:3000'],
+    optionsSuccessStatus: 200
+}
 
 app.use(helmet());
 app.use('/api', limiter);
