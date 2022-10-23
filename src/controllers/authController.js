@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const { promisify } = require('util');
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
-const sendEmail = require('../../utils/email');
+const Email = require('../../utils/email');
 
 const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES_IN });
@@ -29,9 +29,15 @@ const createSendToken = (res, user, statusCode) => {
     });
 }
 
-exports.signup = async function (req, res, next) {
+exports.signup = async function (req, res) {
     try {
         const newUser = await User.create(req.body);
+        const url = `${req.protocol}://${req.get('host')}/me`;
+
+        if (process.env.NODE_ENV === 'production')
+            url = 'https://mamolio.com/me'
+
+        await new Email(newUser, url).sendWelcome();
         createSendToken(res, newUser, 201);
     }
     catch (err) {
@@ -42,7 +48,7 @@ exports.signup = async function (req, res, next) {
     }
 }
 
-exports.login = async (req, res, next) => {
+exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -127,11 +133,12 @@ exports.forgotPassword = async (req, res) => {
 If you didn't forgot your password, please ignore this email.`;
 
         try {
-            await sendEmail({
-                email: user.email,
-                subject: 'Your password reset token (valid for 10 mins)',
-                message
-            });
+            // ! This code should be fixed
+            // await Email({
+            //     email: user.email,
+            //     subject: 'Your password reset token (valid for 10 mins)',
+            //     message
+            // });
 
             res.status(200).json({
                 status: 'success',
