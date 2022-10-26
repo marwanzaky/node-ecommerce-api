@@ -17,7 +17,7 @@ const createSendToken = (res, user, statusCode) => {
         // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
         maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production'
+        // secure: process.env.NODE_ENV === 'production'
     };
 
     res.status(statusCode).cookie('jwk', token, cookieOptions).json({
@@ -51,7 +51,7 @@ exports.login = async (req, res) => {
         const { email, password } = req.body;
 
         if (!email || !password)
-            throw 'Please provide an email and a password';
+            throw 'Please provide an email and a password';     // 400
 
         const user = await User.findOne({ email }).select('+password');
         const isCorrect = async () => await user.correctPassword(password, user.password);
