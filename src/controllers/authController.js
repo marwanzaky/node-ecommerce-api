@@ -17,10 +17,10 @@ const createSendToken = (res, user, statusCode) => {
         // expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
         maxAge: process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        // secure: process.env.NODE_ENV === 'production'
+        secure: process.env.NODE_ENV === 'production'
     };
 
-    res.status(statusCode).cookie('jwk', token, cookieOptions).json({
+    res.status(statusCode).cookie('token', token, cookieOptions).json({
         status: 'success',
         token,
         data: { user }
