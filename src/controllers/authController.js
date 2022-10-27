@@ -20,7 +20,7 @@ const createSendToken = (res, user, statusCode) => {
         secure: process.env.NODE_ENV === 'production'
     };
 
-    res.status(statusCode).cookie('token', token, cookieOptions).json({
+    res.status(statusCode).cookie('jwk', token, cookieOptions).json({
         status: 'success',
         token,
         data: { user }
