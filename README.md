@@ -1,6 +1,6 @@
 # eCommerce-api
 ## 🖐️ About
-[Website](https://mamolio.com/) project api is built from the ground up using modern technologies such as Node.js, Express.js, and MongoDB / Mongoose.
+[Website](https://mamolio.com/) project [api](https://mamolio-api.vercel.app/api/v1/products) is built from the ground up using modern technologies such as Node.js, Express.js, and MongoDB / Mongoose.
 <div>
   <img src="https://img.shields.io/badge/-JavaScript-2c3e50.svg?logo=javascript&style=flat">
   <img src="https://img.shields.io/badge/-NodeJS-2c3e50.svg?logo=node.js&style=flat">
