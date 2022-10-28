@@ -22,11 +22,11 @@ const productSchema = new mongoose.Schema({
     },
     averageRatings: {
         type: Number,
-        required: [true, 'A product must have an average ratings']
+        default: 0,
     },
     numReviews: {
         type: Number,
-        required: [true, 'A product must have an number of reviews']
+        default: 0,
     },
     imgs: {
         type: [String],
