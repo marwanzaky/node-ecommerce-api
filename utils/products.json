@@ -4,7 +4,8 @@
     "name": "Personalised Notebook",
     "price": 999,
     "priceCompare": 1299,
-    "averageRatings": "5.0",
+    "averageRatings": 0,
+    "numReviews": 0,
     "imgs": [
       "imgs/products/personalised-notebook/0",
       "imgs/products/personalised-notebook/1"
@@ -16,7 +17,8 @@
     "name": "Notebook Journal",
     "price": 499,
     "priceCompare": 799,
-    "averageRatings": "5.0",
+    "averageRatings": 0,
+    "numReviews": 0,
     "imgs": [
       "imgs/products/notebook-journal/0",
       "imgs/products/notebook-journal/1"
@@ -28,7 +30,8 @@
     "name": "Soft Cover Journal",
     "price": 1299,
     "priceCompare": 1999,
-    "averageRatings": "4.5",
+    "averageRatings": 0,
+    "numReviews": 0,
     "imgs": [
       "imgs/products/soft-cover-journal/0",
       "imgs/products/soft-cover-journal/1",
@@ -44,7 +47,8 @@
     "name": "Spiral Notebooks",
     "price": 1999,
     "priceCompare": 2499,
-    "averageRatings": "5.0",
+    "averageRatings": 0,
+    "numReviews": 0,
     "imgs": [
       "imgs/products/spiral-notebooks/0",
       "imgs/products/spiral-notebooks/1",

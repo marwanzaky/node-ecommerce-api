@@ -21,7 +21,12 @@ const productSchema = new mongoose.Schema({
         required: [true, 'A product must have a priceCompare']
     },
     averageRatings: {
-        type: String
+        type: Number,
+        required: [true, 'A product must have an average ratings']
+    },
+    numReviews: {
+        type: Number,
+        required: [true, 'A product must have an number of reviews']
     },
     imgs: {
         type: [String],

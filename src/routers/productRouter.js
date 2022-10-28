@@ -12,6 +12,8 @@ router
     .get(productController.getAllProducts)
     .post(authController.protect, authController.restrictTo('admin', 'lead-guide'), productController.createProduct);
 
+router.get('/stats', productController.getProductStats);
+
 router
     .route('/:id')
     .get(productController.getProduct)
