@@ -20,22 +20,11 @@ const createSendToken = (res, user, statusCode) => {
         secure: process.env.NODE_ENV === 'production'
     };
 
-    res.cookie('rememberme', 'yes', {
-        httpOnly: false,
-        sameSite: 'none',
-    });
-
-    res.status(statusCode).json({
+    res.status(statusCode).cookie('jwk', token, cookieOptions).json({
         status: 'success',
         token,
         data: { user }
     });
-
-    // res.status(statusCode).cookie('jwk', token, cookieOptions).json({
-    //     status: 'success',
-    //     token,
-    //     data: { user }
-    // });
 }
 
 exports.signup = async function (req, res) {
