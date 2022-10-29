@@ -20,7 +20,10 @@ const createSendToken = (res, user, statusCode) => {
         secure: process.env.NODE_ENV === 'production'
     };
 
-    res.cookie('rememberme', 'yes', { maxAge: 900000, httpOnly: false });
+    res.cookie('rememberme', 'yes', {
+        httpOnly: false,
+        sameSite: 'none',
+    });
 
     res.status(statusCode).json({
         status: 'success',
