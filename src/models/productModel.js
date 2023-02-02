@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'A product must have a priceCompare']
     },
-    averageRatings: {
+    avgRatings: {
         type: Number,
         default: 0,
     },
