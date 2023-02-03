@@ -6,7 +6,6 @@ exports.getImgProduct = (req, res) => {
 }
 
 exports.getImgUser = (req, res) => {
-    console.log(req.params.name);
     const img = path.resolve(__dirname, `../../img/users/${req.params.name}`);
     res.status(200).sendFile(img);
 }
