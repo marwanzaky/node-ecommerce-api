@@ -28,6 +28,7 @@ const corsOptions = {
     credentials: true,
 };
 
+app.use(express.static('public'))
 app.use(helmet());
 // app.use('/api', limiter);
 app.use(cors(corsOptions));
