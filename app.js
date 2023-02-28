@@ -30,7 +30,7 @@ const corsOptions = {
 
 app.use(express.static('public'))
 app.use(helmet());
-// app.use('/api', limiter);
+app.use('/api', limiter);
 app.use(cors(corsOptions));
 app.use(express.json({ limit: '10kb' }));
 app.use(cookieParser());
