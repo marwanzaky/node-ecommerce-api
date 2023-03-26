@@ -2,7 +2,6 @@ const nodemailer = require('nodemailer');
 const htmlToText = require('html-to-text');
 const pug = require('pug');
 
-// Send emails using the templates
 module.exports = class Email {
     constructor(user, url) {
         this.from = `Marwan Zaky <${process.env.EMAIL_FROM}>`;
