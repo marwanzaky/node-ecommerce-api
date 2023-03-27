@@ -49,6 +49,7 @@ module.exports = class Email {
         await this.newTransport().sendMail(mailOptions);
     }
 
+    // welcome template
     async sendWelcome() {
         await this.send('welcome', 'Welcome to our Store!');
     }
