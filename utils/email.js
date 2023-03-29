@@ -30,6 +30,7 @@ module.exports = class Email {
         });
     }
 
+    // Send
     async send(template, subject) {
         const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
             websiteName: 'Mamolio',
