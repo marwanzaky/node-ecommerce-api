@@ -10,6 +10,7 @@ module.exports = class Email {
         this.url = url;
     }
 
+    // Transport
     newTransport() {
         if (process.env.NODE_ENV === 'production')
             return nodemailer.createTransport({
