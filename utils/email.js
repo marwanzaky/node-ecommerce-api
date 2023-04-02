@@ -10,7 +10,6 @@ module.exports = class Email {
         this.url = url;
     }
 
-    // Transport
     newTransport() {
         if (process.env.NODE_ENV === 'production')
             return nodemailer.createTransport({
@@ -31,7 +30,6 @@ module.exports = class Email {
         });
     }
 
-    // Send
     async send(template, subject) {
         const html = pug.renderFile(`${__dirname}/../views/email/${template}.pug`, {
             websiteName: 'Mamolio',
@@ -51,7 +49,6 @@ module.exports = class Email {
         await this.newTransport().sendMail(mailOptions);
     }
 
-    // welcome template
     async sendWelcome() {
         await this.send('welcome', 'Welcome to our Store!');
     }
